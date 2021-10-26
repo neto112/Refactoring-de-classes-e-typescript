@@ -4,22 +4,22 @@ import { FiEdit3, FiTrash } from 'react-icons/fi';
 import { Container } from './styles';
 import api from '../../services/api';
 
-interface FoodsProps {
+interface IFood {
   image: string,
   name: string,
   description: string,
-  price: number,
+  price: string,
   id: number,
   available: boolean,
 }
 
-interface onFoods {
-  food: FoodsProps,
-  handleEditFood: (food: FoodsProps) => void,
+interface FoodProps {
+  food: IFood,
+  handleEditFood: (food: IFood) => void,
   handleDelete: (id: number) => void,
 }
 
-const Food = ({ food, handleEditFood, handleDelete }: onFoods) => {
+const Food = ({ food, handleEditFood, handleDelete }: FoodProps) => {
 const { available } = food
 const [isAvailable, setIsAvailable] = useState(available)
 
